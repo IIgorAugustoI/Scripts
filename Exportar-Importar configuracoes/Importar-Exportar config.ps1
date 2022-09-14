@@ -1,4 +1,4 @@
-﻿############### Script para Importação das Config's AtivaDaruma ###############################
+############### Script para Importação e Exportação das Config's AtivaDaruma ##################
 ############### Verificação se o script está sendo executado como Administrador ###############
 
 param([switch]$Elevated)
