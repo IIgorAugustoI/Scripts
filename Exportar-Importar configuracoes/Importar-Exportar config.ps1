@@ -87,15 +87,17 @@ function ImportarAtivaDaruma($diretorio) {
         Start-Sleep -s 30;
     }
 
+    for ($i = 0; $i -lt $files.Count; $i++) {
+        C:\'Program Files'\WinRAR\rar.exe x -y $files.OutFile[$i];
+        if($i -eq 1){
+            RegAsm.exe CHNetDLL.DLL /tlb:chnetdll.tlb
+        }
+    }
     Clear-Host;
-    'Extraia a CHNetDLL_Instalacao e o RegAsm antes de continuar.';
-    Pause;
-
-    .\RegAsm.exe CHNetDLL.dll /tlb:chnetdll.tlb;
-    Clear-Host;
-
-    'Atualize a CHNETDLL e o AtivaDaruma';
-    Pause;
+    
+    .\AtivaDaruma.exe;
+    'Importação foi concluída.'
+    exit
 }
 
 function ExportarAtivaDaruma($diretorio) {
@@ -158,3 +160,4 @@ switch ($opcao) {
         Return;
     }
 }
+exit;
